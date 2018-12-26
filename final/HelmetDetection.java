@@ -17,7 +17,7 @@ import org.opencv.objdetect.CascadeClassifier;
         helmetDetector.load("helmet.xml"); 
   
         // Input image 
-        Mat image = Imgcodecs.imread("E:\\Major\\final\\input\\1.jpg"); 
+        Mat image = Imgcodecs.imread("E:\\Major\\final\\input\\2.jpg"); 
   
         // Detecting Helemt 
         MatOfRect helmet = new MatOfRect(); 
@@ -28,13 +28,10 @@ import org.opencv.objdetect.CascadeClassifier;
 		if(helmet.toArray().length!=0)
 		{
 			 
-			//String filename = "Ouput.jpg"; 
-			//Imgcodecs.imwrite("E:\\Major\\final\\output\\"+filename, image);
 				
 			CascadeClassifier numberPlate = new CascadeClassifier(); 
 			numberPlate.load("numberplate.xml");
 
-			Mat numberPlateImage = Imgcodecs.imread("E:\\Major\\final\\output\\Output.jpg"); 
 			
 			MatOfRect number=new MatOfRect();
 			numberPlate.detectMultiScale(image, number);
