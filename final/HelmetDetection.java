@@ -17,7 +17,9 @@ import org.opencv.objdetect.CascadeClassifier;
         helmetDetector.load("helmet.xml"); 
   
         // Input image 
-        Mat image = Imgcodecs.imread("E:\\Major\\final\\input\\2.jpg"); 
+		String path="E:\\Major\\final\\input\\";
+		String myfile="5.jpg";
+        Mat image = Imgcodecs.imread(path+myfile); 
   
         // Detecting Helemt 
         MatOfRect helmet = new MatOfRect(); 
@@ -39,19 +41,19 @@ import org.opencv.objdetect.CascadeClassifier;
 			
 			 for (Rect rect : number.toArray()) 
 			{
-				System.out.println("number plate");
+				
 				Imgproc.rectangle(image, new Point(rect.x, rect.y), 
 				new Point(rect.x + rect.width, rect.y + rect.height), 
                                           new Scalar(0, 255, 0));
 			}
 			for (Rect rect : helmet.toArray()) 
 			{ 
-				System.out.println("No Helmet");
+				
 				Imgproc.rectangle(image, new Point(rect.x, rect.y), 
 				new Point(rect.x + rect.width, rect.y + rect.height), 
                                            new Scalar(0, 255, 0)); 
 			}
-			String filename="output.jpg";	
+			String filename="output "+ myfile;	
 			Imgcodecs.imwrite("E:\\Major\\final\\output\\"+filename, image); 
 			
 		} 
